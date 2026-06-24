@@ -1,0 +1,5 @@
+model:
+  epochs: 200
+  dropout: 0.5
+sampling:
+  fanout: [10, 10]

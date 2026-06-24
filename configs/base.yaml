@@ -1,0 +1,22 @@
+model:
+  hidden_dim: 64
+  num_layers: 2
+  dropout: 0.5
+  lr: 0.01
+  epochs: 200
+  seed: 42
+sampling:
+  fanout: [10, 10]
+  batch_size: 512
+  num_workers: 0
+explainer:
+  method: "gnnexplainer"
+  epochs: 100
+  lr: 0.01
+  top_k: 10
+metrics:
+  noise_floor_runs: 10
+  agreement_metric: "jaccard"
+experiment:
+  datasets: ["cora", "citeseer", "chameleon", "actor"]
+  output_dir: "outputs/"

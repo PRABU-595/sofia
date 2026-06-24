@@ -1,0 +1,15 @@
+torch>=2.0
+torch-geometric>=2.4
+torch-scatter
+torch-sparse
+captum
+numpy
+scipy
+pandas
+matplotlib
+seaborn
+pyyaml
+tqdm
+scikit-learn
+pytest
+networkx
