@@ -4,9 +4,9 @@ import pandas as pd
 import os
 
 def plot_agreement_distributions(df: pd.DataFrame, output_dir: str, dataset_name: str):
-    \"\"\"
+    """
     Plots KDE plots of per-node Jaccard for cross-model vs same-model (noise floor).
-    \"\"\"
+    """
     if df.empty or 'jaccard_cross' not in df.columns or 'jaccard_same' not in df.columns:
         return
         

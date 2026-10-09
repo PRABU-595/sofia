@@ -2,9 +2,9 @@ import torch
 from torch_geometric.explain import Explainer, GNNExplainer
 
 def get_gnn_explainer(model, epochs=100, lr=0.01):
-    \"\"\"
+    """
     Returns a PyG Explainer configured with GNNExplainer algorithm.
-    \"\"\"
+    """
     explainer = Explainer(
         model=model,
         algorithm=GNNExplainer(epochs=epochs, lr=lr),

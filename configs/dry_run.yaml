@@ -1,0 +1,13 @@
+model:
+  epochs: 2
+  dropout: 0.5
+sampling:
+  fanout: [5, 5]
+  batch_size: 32
+explainer:
+  epochs: 5
+metrics:
+  noise_floor_runs: 2
+experiment:
+  datasets: ["cora"]
+  output_dir: "outputs_dryrun/"

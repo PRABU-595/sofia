@@ -6,9 +6,9 @@ class HomophilyStratifiedAnalysis:
         self.n_bins = n_bins
         
     def analyze(self, df: pd.DataFrame) -> pd.DataFrame:
-        \"\"\"
+        """
         Bin nodes into 5 homophily strata and compute mean SOFIA-Index per stratum.
-        \"\"\"
+        """
         # Filter isolated nodes (-1.0) and missing data
         clean_df = df[(df['homophily'] >= 0) & (df['homophily'] <= 1.0)].copy()
         clean_df = clean_df.dropna(subset=['sofia_index'])

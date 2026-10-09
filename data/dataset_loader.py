@@ -1,5 +1,5 @@
 import torch
-from torch_geometric.datasets import Planetoid, WikipediaNetwork, Actor
+from torch_geometric.datasets import Planetoid, WikipediaNetwork, Actor, Reddit
 from torch_geometric.utils import degree
 from dataclasses import dataclass
 import numpy as np
@@ -7,7 +7,7 @@ import os
 
 @dataclass
 class DatasetBundle:
-    data: torch.Any
+    data: __import__("typing").Any
     homophily_per_node: torch.Tensor
     degree_per_node: torch.Tensor
     name: str
@@ -37,6 +37,10 @@ class DatasetLoader:
                 data.train_mask = data.train_mask[:, 0]
                 data.val_mask = data.val_mask[:, 0]
                 data.test_mask = data.test_mask[:, 0]
+        elif name == "reddit":
+            dataset = Reddit(root=os.path.join(self.root, "Reddit"))
+            data = dataset[0]
+            # Reddit comes with standard train/val/test masks
         else:
             raise ValueError(f"Unknown dataset: {name}")
 
@@ -53,18 +57,13 @@ class DatasetLoader:
     def _compute_node_homophily(self, data) -> torch.Tensor:
         row, col = data.edge_index
         labels = data.y
-        
+        same_label_edges = (labels[row] == labels[col]).float()
         homophily = torch.zeros(data.num_nodes, dtype=torch.float32)
+        homophily.scatter_add_(0, row, same_label_edges)
         node_degrees = degree(row, num_nodes=data.num_nodes)
-        
-        for i in range(data.num_nodes):
-            if node_degrees[i] > 0:
-                neighbors = col[row == i]
-                same_label_count = (labels[neighbors] == labels[i]).sum().item()
-                homophily[i] = same_label_count / node_degrees[i].item()
-            else:
-                homophily[i] = -1.0  # isolated nodes
-                
+        mask = node_degrees > 0
+        homophily[mask] = homophily[mask] / node_degrees[mask]
+        homophily[~mask] = -1.0
         return homophily
 
     def _compute_node_degree(self, data) -> torch.Tensor:
@@ -73,19 +72,19 @@ class DatasetLoader:
 
     @staticmethod
     def get_homophily_bins(homophily_per_node: torch.Tensor, n_bins: int = 5) -> dict:
-        \"\"\"
+        """
         Returns node indices stratified by homophily score.
         Ignores isolated nodes (homophily == -1.0).
-        \"\"\"
+        """
         valid_nodes = (homophily_per_node >= 0).nonzero(as_tuple=True)[0]
         valid_homophily = homophily_per_node[valid_nodes]
-        
+       
         bins = np.linspace(0, 1, n_bins + 1)
         # Using digitize: values 1 to n_bins
         bin_indices = np.digitize(valid_homophily.numpy(), bins)
         # Fix for values exactly equal to 1.0
         bin_indices[bin_indices == n_bins + 1] = n_bins
-        
+       
         strata = {}
         for b in range(1, n_bins + 1):
             lower = bins[b-1]
@@ -93,5 +92,5 @@ class DatasetLoader:
             stratum_name = f"{lower:.1f}-{upper:.1f}"
             nodes_in_bin = valid_nodes[bin_indices == b]
             strata[stratum_name] = nodes_in_bin
-            
+           
         return strata

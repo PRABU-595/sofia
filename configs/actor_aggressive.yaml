@@ -1,0 +1,18 @@
+model:
+  epochs: 100
+  dropout: 0.5
+  lr: 0.01
+sampling:
+  fanout: [2, 2]
+  batch_size: 512
+explainer:
+  epochs: 100
+  type: "saliency"
+  top_k: 10
+metrics:
+  noise_floor_runs: 5
+experiment:
+  datasets: ["actor"]
+  num_seeds: 5
+  output_dir: "outputs/actor_aggressive/"
+  max_explanation_nodes: 1000

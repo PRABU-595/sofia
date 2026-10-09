@@ -9,8 +9,6 @@ setup(
     install_requires=[
         "torch>=2.0",
         "torch-geometric>=2.4",
-        "torch-scatter",
-        "torch-sparse",
         "captum",
         "numpy",
         "scipy",

@@ -10,10 +10,10 @@ class NoiseFloorEstimator:
         self.noise_std = noise_std
         
     def estimate(self, model, data, node_indices) -> Dict[int, float]:
-        \"\"\"
+        """
         Runs the explainer multiple times with noise and computes pairwise Jaccard agreement
         to establish a baseline for each node.
-        \"\"\"
+        """
         all_runs_explanations = []
         
         # We need at least 2 runs to compare, but n_runs usually >= 5

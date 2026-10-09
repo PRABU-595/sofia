@@ -1,0 +1,18 @@
+model:
+  epochs: 100
+  dropout: 0.5
+  lr: 0.01
+sampling:
+  fanout: [5, 5]
+  batch_size: 512
+explainer:
+  epochs: 100
+  type: "saliency"
+  top_k: 10
+metrics:
+  noise_floor_runs: 5
+experiment:
+  datasets: ["reddit"]
+  num_seeds: 5
+  output_dir: "outputs/reddit_aggressive/"
+  max_explanation_nodes: 1000

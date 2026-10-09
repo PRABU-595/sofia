@@ -1,0 +1,17 @@
+model:
+  epochs: 100
+  dropout: 0.5
+  lr: 0.01
+sampling:
+  fanout: [10, 10]
+  batch_size: 512
+explainer:
+  epochs: 100
+  type: "gnnexplainer" # toggles explainer type
+metrics:
+  noise_floor_runs: 5
+experiment:
+  datasets: ["reddit"]
+  num_seeds: 3
+  output_dir: "outputs/reddit/"
+  max_explanation_nodes: 1000

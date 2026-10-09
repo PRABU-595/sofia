@@ -7,9 +7,9 @@ class DegreeControlAnalysis:
         self.n_bins = n_bins
         
     def analyze(self, df: pd.DataFrame) -> pd.DataFrame:
-        \"\"\"
+        """
         Bin nodes by log-degree into quintiles and analyze exclusion vs SOFIA-Index.
-        \"\"\"
+        """
         clean_df = df[df['degree'] > 0].copy()
         clean_df = clean_df.dropna(subset=['sofia_index', 'influential_exclusion_score'])
         

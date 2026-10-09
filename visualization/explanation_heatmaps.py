@@ -4,10 +4,10 @@ import numpy as np
 import os
 
 def plot_explanation_heatmaps(explanations_full, explanations_sampled, nodes_to_plot, output_dir, dataset_name):
-    \"\"\"
+    """
     Visualizes side-by-side inclusion (1=included, 0=not) of neighbors in the top-k explanation
     for a sample of nodes.
-    \"\"\"
+    """
     if not nodes_to_plot:
         return
         

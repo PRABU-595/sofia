@@ -28,3 +28,51 @@ outputs/**/*.pt
 # System
 .DS_Store
 Thumbs.db
+
+# Datasets
+data/Actor/
+data/Planetoid/
+data/Reddit/
+
+# Manuscript and Presentations
+*.docx
+*.pptx
+
+# Submission and Zips
+submission/
+submition/
+*.zip
+
+# Build artifacts
+sofia.egg-info/
+
+# Scratch scripts
+patch*.py
+fix*.py
+build_submission_package.py
+
+
+
+# Datasets
+data/Actor/
+data/Planetoid/
+data/Reddit/
+
+# Manuscript and Presentations
+*.docx
+*.pptx
+
+# Submission and Zips
+submission/
+submition/
+*.zip
+
+# Build artifacts
+sofia.egg-info/
+__pycache__/
+.pytest_cache/
+
+# Scratch scripts
+patch*.py
+fix*.py
+build_submission_package.py
