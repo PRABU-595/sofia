@@ -16,14 +16,6 @@ ENV/
 *.pth
 
 # Outputs (Keep the directory structure but ignore contents)
-outputs/*
-!outputs/.gitkeep
-outputs/**/*.pkl
-outputs/**/*.csv
-outputs/**/*.png
-outputs/**/*.pdf
-outputs/**/*.txt
-outputs/**/*.pt
 
 # System
 .DS_Store
@@ -76,3 +68,6 @@ __pycache__/
 patch*.py
 fix*.py
 build_submission_package.py
+
+# Ignore massive neighbor exclusion trackers (4.4 GB each)
+outputs/**/tracker_*.pkl

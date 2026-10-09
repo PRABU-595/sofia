@@ -1,0 +1,6 @@
+univariate_slope: -0.022073586997072316
+univariate_p_value: 0.8044100195046014
+multivariate_coef_exclusion: -0.11576862974609683
+multivariate_p_value_exclusion: 0.4014432493443638
+partial_r2: 0.005506292311249713
+n_samples: 132

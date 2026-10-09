@@ -1,0 +1,7 @@
+univariate_r: 0.28008896290197405
+univariate_p_value: 9.932940469484734e-13
+multivariate_coef_exclusion: 0.6873386212170594
+multivariate_p_value_exclusion: 3.3306690738754696e-15
+multivariate_partial_r2_exclusion: 0.0952407881353125
+multivariate_binary_coef_exclusion: -0.11889697578703456
+multivariate_binary_p_value_exclusion: 0.0002474542265384905

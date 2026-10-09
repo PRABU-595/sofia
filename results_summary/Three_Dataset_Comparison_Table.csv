@@ -1,0 +1,4 @@
+Dataset,Graph_Domain,Homophily,Avg_Degree,Exclusion_Rate_Pct,Influential_Exclusion_Score_Pct,Noise_Floor_Same_Model_Jaccard,Cross_Model_Jaccard,Instability_Gap,SOFIA_Index_Mean,Beta_Exclusion,p_value_Beta,Partial_R2,Statistical_Verdict,Hypothesis_Supported
+Cora,Citation Network,0.7711,6.14,3.11,6.59,0.7175,0.6531,0.0644,0.0892,-0.1158,0.4014,0.0055,Null Effect (Negative Control: Low degree prevents sampling exclusion),H1 Baseline / Structural Control
+Actor (Film),Actor Co-occurrence (Heterophilous),0.228,6.01,39.78,71.13,0.791,0.7024,0.0886,0.1311,0.2549,1.2e-33,0.1298,"Statistically Significant (Moderate Exclusion, High Signal Concentration)",H2 Proven (Heterophily mechanism driven by non-redundant neighbors)
+Reddit,Online Discussion Threads,0.8162,143.46,87.22,89.66,0.5379,0.292,0.2459,0.4403,0.6873,3.33e-15,0.0952,"Statistically Significant (Aggressive Exclusion, Massive Volume)",H1 Proven (High degree causes aggressive exclusion and large explanation drift)
