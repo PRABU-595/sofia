@@ -22,8 +22,6 @@ ENV/
 Thumbs.db
 
 # Datasets
-data/Actor/
-data/Planetoid/
 data/Reddit/
 
 # Manuscript and Presentations
@@ -46,8 +44,6 @@ build_submission_package.py
 
 
 # Datasets
-data/Actor/
-data/Planetoid/
 data/Reddit/
 
 # Manuscript and Presentations
