@@ -88,13 +88,3 @@ For each dataset, outputs are saved in `outputs/{dataset}/`:
 
 ---
 
-## Citation
-
-```bibtex
-@article{sofia2026,
-  title={Sofia: Same Model, Different Reasons — Quantifying Sampling-Induced Explanation Instability in GNNs},
-  author={Anonymous},
-  journal={arXiv preprint},
-  year={2026}
-}
-```
